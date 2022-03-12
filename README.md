@@ -6,7 +6,7 @@ You can add the following to your POM if you're using Maven:
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.github.freyacodes</groupId>
+        <groupId>com.github.RedCokeDevelopment</groupId>
         <artifactId>Lavalink-Client</artifactId>
         <version>x.y.z</version>
     </dependency>
