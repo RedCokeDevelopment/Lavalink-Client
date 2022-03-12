@@ -78,10 +78,15 @@ public class LavalinkSocket extends ReusableWebSocket {
 
     @Override
     public void onOpen(ServerHandshake handshakeData) {
-        log.info("Received handshake from server");
+        log.info("Received handshake from server {}", remoteUri);
         available = true;
         lavalink.loadBalancer.onNodeConnect(this);
         reconnectsAttempted = 0;
+
+        boolean resumed = handshakeData.getFieldValue("Session-Resumed").equals("true");
+        if (resumed) {
+            log.info("Resumed to {}", remoteUri);
+        }
     }
 
     @Override
@@ -208,6 +213,22 @@ public class LavalinkSocket extends ReusableWebSocket {
             log.warn("Attempting to send messages to " + getRemoteUri() + " WHILE connecting. Ignoring.");
         }
     }
+
+    public void configureResuming(String resumeKey) {
+        configureResuming(resumeKey, -1);
+    }
+
+    public void configureResuming(String resumeKey, long timeout) {
+        JSONObject json = new JSONObject()
+                .put("op", "configureResuming")
+                .put("key", resumeKey);
+        if (timeout > 0) {
+            json.put("timeout", timeout);
+        }
+        send(json.toString());
+    }
+
+
 
     @NonNull
     @SuppressWarnings("unused")
