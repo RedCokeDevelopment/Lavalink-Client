@@ -168,7 +168,9 @@ public class LavalinkSocket extends ReusableWebSocket {
                 // Unlike the other events, this is handled by the Link instead of the LavalinkPlayer,
                 // as this event is more relevant to the implementation of Link.
 
-                log.info("WebSocket closed: {}", json.getString("reason") + " (" + json.getInt("code") + ")");
+                if (json.getInt("code") != 1000) {
+                    log.info("WebSocket closed: {} ({})", json.getString("reason"), json.getInt("code"));
+                }
                 link.onVoiceWebSocketClosed(
                         json.getInt("code"),
                         json.getString("reason"),
