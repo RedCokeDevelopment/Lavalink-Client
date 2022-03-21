@@ -77,6 +77,16 @@ public class PlayerEventListenerAdapter implements IPlayerEventListener {
         // Adapter dummy method
     }
 
+    /**
+     * WebSocket close event
+     * @param player Audio player
+     * @param code error code
+     * @param reason reason of websocket close
+     * @param remote true if the websocket was closed by the discord, false if the websocket was closed by the lavalink
+     */
+    public void onWebSocketClosed(IPlayer player, int code, String reason, boolean remote) {
+        // Adapter dummy method
+    }
 
     @Override
     public void onEvent(PlayerEvent event) {
@@ -92,6 +102,8 @@ public class PlayerEventListenerAdapter implements IPlayerEventListener {
             onTrackException(event.getPlayer(), ((TrackExceptionEvent) event).getTrack(), ((TrackExceptionEvent) event).getException());
         } else if (event instanceof TrackStuckEvent) {
             onTrackStuck(event.getPlayer(), ((TrackStuckEvent) event).getTrack(), ((TrackStuckEvent) event).getThresholdMs());
+        } else if (event instanceof WebSocketClosedEvent){
+            onWebSocketClosed(event.getPlayer(), ((WebSocketClosedEvent) event).getCode(), ((WebSocketClosedEvent) event).getReason(), ((WebSocketClosedEvent) event).isRemote());
         }
     }
 }

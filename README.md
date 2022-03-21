@@ -1,4 +1,4 @@
-# Lavalink Client [![Release](https://img.shields.io/github/tag/freyacodes/Lavalink-Client.svg)](https://jitpack.io/#freyacodes/Lavalink-Client)
+# Lavalink Client [![Release](https://img.shields.io/github/tag/RedCokeDevelopment/Lavalink-Client.svg)](https://jitpack.io/#RedCokeDevelopment/Lavalink-Client)
 
 ## Installation
 Lavalink does not have a maven repository and instead uses Jitpack.
@@ -30,7 +30,7 @@ Or Gradle:
     }
 
     dependencies {
-        compile group: 'com.github.freyacodes', name: 'Lavalink-Client', version: 'x.y.z'
+        compile group: 'com.github.RedCokeDevelopment', name: 'Lavalink-Client', version: 'x.y.z'
     }
 ```
 
