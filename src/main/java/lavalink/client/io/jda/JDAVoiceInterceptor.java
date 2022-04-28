@@ -32,7 +32,6 @@ public class JDAVoiceInterceptor implements VoiceDispatchInterceptor {
 
     @Override
     public boolean onVoiceStateUpdate(@Nonnull VoiceStateUpdate update) {
-
         AudioChannel channel = update.getChannel();
         JdaLink link = lavalink.getLink(update.getGuildId());
 
