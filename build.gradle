@@ -55,7 +55,7 @@ ext {
 
     junitJupiterVersion         = '5.2.0'
     junitPlatformVersion        = '1.2.0'
-    logbackVersion              = '1.2.3'
+    logbackVersion              = '1.2.9'
     unirestVersion              = '1.4.9'
 
     //@formatter:on
