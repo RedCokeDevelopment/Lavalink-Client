@@ -34,9 +34,10 @@ targetCompatibility = 1.8
 
 
 repositories {
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://m2.dv8tion.net/releases'}
     jcenter()
     mavenCentral()
-    maven { url 'https://jitpack.io' }
 }
 
 
@@ -62,7 +63,8 @@ ext {
 
 
 dependencies {
-    compile group: 'com.sedmelluq', name: 'lavaplayer', version: lavaplayerVersion
+    // Changed to lavaplayer folk because original lavaplayer repo is no longer being maintained
+    compile group: 'com.github.walkyst', name:'lavaplayer-fork', version: lavaplayerVersion
     compile group: 'org.java-websocket', name: 'Java-WebSocket', version: javaWebSocketVersion
     compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
     compile group: 'org.json', name: 'json', version: jsonOrgVersion
