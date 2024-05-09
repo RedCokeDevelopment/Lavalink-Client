@@ -51,7 +51,7 @@ public class LavalinkUtil {
         PLAYER_MANAGER = new DefaultAudioPlayerManager();
 
         /* These are only to encode/decode messages */
-        PLAYER_MANAGER.registerSourceManager(new YoutubeAudioSourceManager(true, new Client[]{new Web(), new Music()});
+        PLAYER_MANAGER.registerSourceManager(new YoutubeAudioSourceManager(true, new Web(), new Music()));
         PLAYER_MANAGER.registerSourceManager(new BandcampAudioSourceManager());
         PLAYER_MANAGER.registerSourceManager(SoundCloudAudioSourceManager.createDefault());
         PLAYER_MANAGER.registerSourceManager(new TwitchStreamAudioSourceManager());
